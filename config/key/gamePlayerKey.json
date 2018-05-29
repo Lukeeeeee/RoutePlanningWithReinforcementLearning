@@ -1,0 +1,9 @@
+[
+  "LOG_FLAG",
+  "SEED",
+  "SAVE_CONFIG_FILE_FLAG",
+  "GAME_NAME",
+  "EPOCH",
+  "STEP",
+  "MAX_REAL_ENV_SAMPLE"
+]
