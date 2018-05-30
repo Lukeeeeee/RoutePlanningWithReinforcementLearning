@@ -7,7 +7,7 @@ from copy import deepcopy
 
 
 class GridMapEnvironment(BasicEnv):
-    standard_key_list = Config.load_json(CONFIG_KEY + '/simpleGridWorldEnvironmentKey.json')
+    key_list = Config.load_json(CONFIG_KEY + '/simpleGridWorldEnvironmentKey.json')
 
     def __init__(self, config):
         super(GridMapEnvironment, self).__init__(config=config)
@@ -91,7 +91,6 @@ class GridMapEnvironment(BasicEnv):
         state = self._convert_state_to_list(state=self.state)
         return state
 
-    @staticmethod
-    def _convert_state_to_list(state):
+    def _convert_state_to_list(self, state):
         s = [state['X'], state['Y'], state['T'], state['DIRECTION']]
         return s

@@ -116,6 +116,7 @@ config/*
 !config/key
 !config/config_S*
 !config/config_T*
+!config/config_E*
 !config/configSet_H**/
 !config/configSet_M**/
 !config/configSet_P**/

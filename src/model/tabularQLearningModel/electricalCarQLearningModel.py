@@ -3,14 +3,11 @@ from src.config.config import Config
 from config.key import CONFIG_KEY
 
 
-class TurnCostTabularQLearningModel(TabularQLearningModel):
+class ElectricalCarQLearningModel(TabularQLearningModel):
     key_list = Config.load_json(file_path=CONFIG_KEY + '/tabularQLearingModelKey.json')
 
-    def __init__(self, config):
-        super().__init__(config)
-
     def return_table_value(self, action, state):
-        return self.q_table[action][state[0]][state[1]][self.direction_map_to_scalar[state[3]]]
+        return self.q_table[action][state[0]][state[1]][state[4]][state[5]][state[6]][state[7]][state[8]]
 
     def set_table_value(self, action, state, val):
-        self.q_table[action][state[0]][state[1]][self.direction_map_to_scalar[state[3]]] = val
+        self.q_table[action][state[0]][state[1]][state[4]][state[5]][state[6]][state[7]][state[8]] = val

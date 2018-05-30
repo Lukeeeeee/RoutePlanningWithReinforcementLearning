@@ -14,6 +14,12 @@ class TabularQLearningModel(Model):
         q_tabel_shape = [self.config.config_dict[key] for key in self.config.config_dict['Q_TABULAR_SHAPE']]
         self.q_table = np.zeros(shape=q_tabel_shape)
         self.sample_data = SamplerData()
+        self.direction_map_to_scalar = {
+            'N': 0,
+            'W': 1,
+            'S': 2,
+            'E': 3
+        }
 
     def return_table_value(self, action, state):
         return self.q_table[action][state[0]][state[1]]
@@ -53,6 +59,7 @@ class TabularQLearningModel(Model):
     def store_one_sample(self, state, next_state, action, reward, done):
         # state = state[0:2]
         # new_state = next_state[0:2]
+        assert state is not None
         self.sample_data.append(state=state,
                                 action=action,
                                 reward=reward,

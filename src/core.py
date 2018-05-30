@@ -216,8 +216,8 @@ class GamePlayer(object):
                                              sample_count=50,
                                              store_flag=False,
                                              agent_print_log_flag=True)
-            print("Q table:")
-            print(self.agent.model.q_table)
+            # print("Q table:")
+            # print(self.agent.model.q_table)
         pass
 
     def print_log_to_file(self):

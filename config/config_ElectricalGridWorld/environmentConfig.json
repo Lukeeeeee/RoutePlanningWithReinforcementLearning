@@ -1,0 +1,27 @@
+{
+  "TARGET": [
+    0,
+    3
+  ],
+  "START": [
+    3,
+    0
+  ],
+  "MAX_STEP": 40,
+  "INIT_DIRECTION": "N",
+  "NORMAL_MOVING_COST": 1,
+  "N": 4,
+  "M": 4,
+  "HIT_BOUND_COST": 10,
+  "FULL_POWER": 3,
+  "CHARGE_SITE_1": [
+    0,
+    1
+  ],
+  "CHARGE_SITE_2": [
+    3,
+    1
+  ],
+  "OUT_OF_POWER_COST": 100,
+  "REACH_CHARGE_SITE_REWARD": 20
+}
