@@ -13,10 +13,12 @@ from util import util as test_util
 def create_case_1_game():
     n = 4
     m = 4
+    env = test_util.create_simple_grid_environment(config_path=CONFIG_SET_SIMPLE_GRID_WORLD + '/environmentConfig.json')
 
     tabular_model = test_util.create_tabular_q_learning_model(
-        config_path=CONFIG_SET_SIMPLE_GRID_WORLD + '/modelConfig.json')
-    env = test_util.create_simple_grid_environment(config_path=CONFIG_SET_SIMPLE_GRID_WORLD + '/environmentConfig.json')
+        config_path=CONFIG_SET_SIMPLE_GRID_WORLD + '/modelConfig.json',
+        n=env.config.config_dict['N'],
+        m=env.config.config_dict['M'])
     agent = test_util.create_target_agent(config_path=CONFIG_SET_SIMPLE_GRID_WORLD + '/agentConfig.json',
                                           env=env,
                                           model=tabular_model)

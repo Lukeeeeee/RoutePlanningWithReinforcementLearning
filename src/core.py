@@ -213,11 +213,12 @@ class GamePlayer(object):
             self.agent.status = self.agent.status_key['TEST']
             print("Test")
             trainer_data = self.agent.sample(env=self.env,
-                                             sample_count=500,
+                                             sample_count=50,
                                              store_flag=False,
                                              agent_print_log_flag=True)
             print("Q table:")
             print(self.agent.model.q_table)
+        pass
 
     def print_log_to_file(self):
         for basic in self.basic_list:

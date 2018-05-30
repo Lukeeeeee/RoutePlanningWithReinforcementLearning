@@ -10,7 +10,9 @@ class TabularQLearningModel(Model):
 
     def __init__(self, config):
         super().__init__(config)
-        self.q_table = np.zeros(shape=self.config.config_dict[['Q_TABULAR_SHAPE']])
+
+        q_tabel_shape = [self.config.config_dict[key] for key in self.config.config_dict['Q_TABULAR_SHAPE']]
+        self.q_table = np.zeros(shape=q_tabel_shape)
         self.sample_data = SamplerData()
 
     def return_table_value(self, action, state):

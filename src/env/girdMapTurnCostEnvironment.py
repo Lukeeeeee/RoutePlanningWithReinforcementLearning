@@ -18,5 +18,6 @@ class GridMapTurnCostEnvironment(GridMapEnvironment):
     def computer_reward(self, bound_hit_flag, old_state, new_state):
         reward = super().computer_reward(bound_hit_flag, old_state, new_state)
         if new_state['DIRECTION'] in self.turn_cost_dict[old_state['DIRECTION']]:
+            print("Turn occurred!!!")
             reward -= self.config.config_dict['TURN_LEFT_COST']
         return reward

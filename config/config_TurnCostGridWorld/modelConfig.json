@@ -1,9 +1,15 @@
 {
   "ACTION_SIZE": 4,
-  "N": 4,
-  "M": 4,
+  "N": 5,
+  "M": 5,
   "GAMMA": 0.99,
   "LEARNING_RATE": 0.8,
   "REAL_ENVIRONMENT_STATUS": 0,
-  "CYBER_ENVIRONMENT_STATUS": 1
+  "CYBER_ENVIRONMENT_STATUS": 1,
+  "Q_TABULAR_SHAPE": [
+    "ACTION_SIZE",
+    "N",
+    "M",
+    "ACTION_SIZE"
+  ]
 }

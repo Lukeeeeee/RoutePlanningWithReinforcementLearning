@@ -35,8 +35,10 @@ def create_simple_grid_environment(config_path):
     return env
 
 
-def create_tabular_q_learning_model(config_path):
+def create_tabular_q_learning_model(config_path, n, m):
     model_config = load_config(key_list=TabularQLearningModel.key_list, config_path=config_path)
+    model_config.config_dict['N'] = n
+    model_config.config_dict['M'] = m
     model = TabularQLearningModel(config=model_config)
     return model
 
@@ -57,7 +59,11 @@ def create_turn_cost_simple_grid_environment(config_path):
     return env
 
 
-def create_turn_cost_tabular_q_learning_model(config_path):
+def create_turn_cost_tabular_q_learning_model(config_path, n, m):
     model_config = load_config(key_list=TurnCostTabularQLearningModel.key_list, config_path=config_path)
+
+    model_config.config_dict['N'] = n
+    model_config.config_dict['M'] = m
+
     model = TurnCostTabularQLearningModel(config=model_config)
     return model

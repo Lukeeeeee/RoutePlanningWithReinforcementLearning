@@ -1,15 +1,16 @@
 {
   "TARGET": [
-    3,
+    0,
     3
   ],
   "START": [
-    0,
+    3,
     0
   ],
   "MAX_STEP": 40,
   "INIT_DIRECTION": "N",
   "NORMAL_MOVING_COST": 1,
   "N": 4,
-  "M": 4
+  "M": 4,
+  "HIT_BOUND_COST": 10
 }

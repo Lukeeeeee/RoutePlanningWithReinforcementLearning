@@ -1,9 +1,9 @@
 {
-  "EPOCH": 10000,
+  "EPOCH": 100,
   "GAME_NAME": "simpleGridWorld",
   "LOG_FLAG": 0,
   "MAX_REAL_ENV_SAMPLE": 1000000,
   "SAVE_CONFIG_FILE_FLAG": 1,
   "SEED": 111,
-  "STEP": 50
+  "STEP": 10
 }

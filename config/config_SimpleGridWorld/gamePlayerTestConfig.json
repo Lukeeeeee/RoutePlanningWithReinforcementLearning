@@ -1,5 +1,5 @@
 {
-  "EPOCH": 10000,
+  "EPOCH": 10,
   "GAME_NAME": "simpleGridWorld",
   "LOG_FLAG": 0,
   "MAX_REAL_ENV_SAMPLE": 1000000,

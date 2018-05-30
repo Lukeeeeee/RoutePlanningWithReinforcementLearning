@@ -11,10 +11,10 @@ class GridMapEnvironment(BasicEnv):
 
     def __init__(self, config):
         super(GridMapEnvironment, self).__init__(config=config)
-        self.move_vector = {'S': {'X': -1, 'Y': 0},
-                            'N': {'X': 1, 'Y': 0},
-                            'W': {'X': 0, 'Y': 1},
-                            'E': {'X': 0, 'Y': -1}}
+        self.move_vector = {'W': {'X': -1, 'Y': 0},
+                            'E': {'X': 1, 'Y': 0},
+                            'N': {'X': 0, 'Y': 1},
+                            'S': {'X': 0, 'Y': -1}}
         self.reset_flag = False
         self.vec_set = []
         self.edge_set = []
