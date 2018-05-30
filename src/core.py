@@ -204,7 +204,7 @@ class GamePlayer(object):
             for j in range(self.config.config_dict['STEP']):
                 print("\nEPOCH %d, STEP %d" % (i, j))
                 trainer_data = self.agent.sample(env=self.env,
-                                                 sample_count=10,
+                                                 sample_count=20,
                                                  store_flag=True,
                                                  agent_print_log_flag=True)
                 self.agent.train()
