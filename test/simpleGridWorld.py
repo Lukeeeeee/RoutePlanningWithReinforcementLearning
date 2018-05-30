@@ -10,7 +10,7 @@ from config.config_SimpleGridWorld import CONFIG_SET_SIMPLE_GRID_WORLD
 from util import util as test_util
 
 
-def create_game():
+def create_case_1_game():
     n = 4
     m = 4
 
@@ -28,6 +28,5 @@ def create_game():
 
 
 if __name__ == '__main__':
-    player = create_game()
-    pass
+    player = create_case_1_game()
     player.play()

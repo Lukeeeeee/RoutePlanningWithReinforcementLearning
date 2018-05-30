@@ -1,6 +1,8 @@
 from src.agent.targetAgent.targetAgent import TargetAgent
 from src.env.gridMapEnvironment import GridMapEnvironment
+from src.env.girdMapTurnCostEnvironment import GridMapTurnCostEnvironment
 from src.model.tabularQLearningModel.tabularQLearningModel import TabularQLearningModel
+from src.model.tabularQLearningModel.turnCostTabularQLearningModel import TurnCostTabularQLearningModel
 from src.config.config import Config
 from copy import deepcopy
 from src.util.sampler.sampler import Sampler
@@ -45,3 +47,17 @@ def create_game_player(config_path, env, agent, basic_list):
 
     player = GamePlayer(config=player_config, env=env, agent=agent, basic_list=basic_list)
     return player
+
+
+def create_turn_cost_simple_grid_environment(config_path):
+    env_config = load_config(key_list=GridMapTurnCostEnvironment.key_list,
+                             config_path=config_path)
+    env = GridMapTurnCostEnvironment(config=env_config)
+
+    return env
+
+
+def create_turn_cost_tabular_q_learning_model(config_path):
+    model_config = load_config(key_list=TurnCostTabularQLearningModel.key_list, config_path=config_path)
+    model = TurnCostTabularQLearningModel(config=model_config)
+    return model

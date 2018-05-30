@@ -37,14 +37,13 @@ class GridMapEnvironment(BasicEnv):
             reach_target_flag = False
         self.reset_flag = reach_target_flag or self.state['T'] + 1 > self.config.config_dict['MAX_STEP']
 
-        reward = self.computer_reward(bound_hit_flag=bound_hit_flag, x=self.state['X'], y=self.state['Y'], new_x=new_x,
-                                      new_y=new_y)
         new_state = {
             'T': self.state['T'] + 1,
             'X': new_x,
             'Y': new_y,
             'DIRECTION': new_direction
         }
+        reward = self.computer_reward(bound_hit_flag=bound_hit_flag, old_state=self.state, new_state=new_state)
 
         self.state = new_state
 
@@ -60,51 +59,18 @@ class GridMapEnvironment(BasicEnv):
         else:
             return new_x, new_y, False, new_direction
 
-    # def compute_new_direction(self, direction, action):
-    #
-    #     # ACTION = {N, W, S ,E}
-    #     # DIRECTION = {N, W, S, E}
-    #
-    #     if action is 'S':
-    #         return direction
-    #     if action is 'L':
-    #         if direction is 'N':
-    #             return 'W'
-    #         if direction is 'W':
-    #             return 'S'
-    #         if direction is 'S':
-    #             return 'E'
-    #         if direction is 'E':
-    #             return 'N'
-    #     if action is 'R':
-    #         if direction is 'N':
-    #             return 'E'
-    #         if direction is 'E':
-    #             return 'S'
-    #         if direction is 'S':
-    #             return 'W'
-    #         if direction is 'W':
-    #             return 'N'
-    #     if action is 'T':
-    #         if direction is 'N':
-    #             return 'S'
-    #         if direction is 'E':
-    #             return 'W'
-    #         if direction is 'S':
-    #             return 'N'
-    #         if direction is 'W':
-    #             return 'E'
+    def computer_reward(self, bound_hit_flag, old_state, new_state):
+        x = old_state['X']
+        y = old_state['Y']
 
-    def compute_cost(self, x, y, new_x, new_y, t, action, power):
-        raise NotImplementedError
-
-    def computer_reward(self, bound_hit_flag, x, y, new_x, new_y):
+        new_x = new_state['X']
+        new_y = new_state['Y']
 
         pre_dist = self._two_point_distance(p1=(x, y), p2=self.config.config_dict['TARGET'])
         new_dist = self._two_point_distance(p1=(new_x, new_y), p2=self.config.config_dict['TARGET'])
 
         reward = np.sign(new_dist - pre_dist) - self.config.config_dict['NORMAL_MOVING_COST'] + int(bound_hit_flag) * (
-            -10)
+            -self.config.config_dict['HIT_BOUND_COST'])
         if new_x == self.config.config_dict['TARGET'][0] and new_y == self.config.config_dict['TARGET'][1]:
             reward += 100
         return reward

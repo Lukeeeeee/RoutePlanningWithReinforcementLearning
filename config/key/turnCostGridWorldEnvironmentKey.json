@@ -6,5 +6,6 @@
   "NORMAL_MOVING_COST",
   "N",
   "M",
-  "HIT_BOUND_COST"
+  "HIT_BOUND_COST",
+  "TURN_LEFT_COST"
 ]
