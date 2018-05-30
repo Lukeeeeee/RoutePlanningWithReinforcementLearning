@@ -1,10 +1,10 @@
 {
   "TARGET": [
-    0,
+    3,
     3
   ],
   "START": [
-    3,
+    0,
     0
   ],
   "MAX_STEP": 40,
@@ -12,16 +12,17 @@
   "NORMAL_MOVING_COST": 1,
   "N": 4,
   "M": 4,
-  "HIT_BOUND_COST": 10,
+  "HIT_BOUND_COST": 20,
   "FULL_POWER": 3,
   "CHARGE_SITE_1": [
-    0,
-    1
+    1,
+    2
   ],
   "CHARGE_SITE_2": [
     3,
-    1
+    2
   ],
-  "OUT_OF_POWER_COST": 100,
-  "REACH_CHARGE_SITE_REWARD": 20
+  "OUT_OF_POWER_COST": 50,
+  "REACH_CHARGE_SITE_REWARD": 15,
+  "REACH_TARGET_REWARD": 500
 }

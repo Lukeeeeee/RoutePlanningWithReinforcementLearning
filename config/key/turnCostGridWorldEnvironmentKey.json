@@ -7,5 +7,6 @@
   "N",
   "M",
   "HIT_BOUND_COST",
-  "TURN_LEFT_COST"
+  "TURN_LEFT_COST",
+  "REACH_TARGET_REWARD"
 ]

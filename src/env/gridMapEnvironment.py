@@ -72,7 +72,7 @@ class GridMapEnvironment(BasicEnv):
         reward = np.sign(new_dist - pre_dist) - self.config.config_dict['NORMAL_MOVING_COST'] + int(bound_hit_flag) * (
             -self.config.config_dict['HIT_BOUND_COST'])
         if new_x == self.config.config_dict['TARGET'][0] and new_y == self.config.config_dict['TARGET'][1]:
-            reward += 100
+            reward += self.config.config_dict['REACH_TARGET_REWARD']
         return reward
 
     def reset(self):
