@@ -152,7 +152,8 @@ class TargetAgent(Agent):
                                               'REWARD_STD': std,
                                               'REAL_SAMPLE_COUNT': self._real_env_sample_count,
                                               'CYBER_SAMPLE_COUNT': self._cyber_env_sample_count,
-                                              'ENV': env_status})
+                                              'ENV': env_status,
+                                              'Q_TABLE': self.model.return_q_table()})
             elif self.status == self.status_key['TEST']:
                 self.log_file_content.append({'INDEX': self.log_print_count,
                                               'REWARD_SUM': sum,
@@ -160,7 +161,8 @@ class TargetAgent(Agent):
                                               'REWARD_STD': std,
                                               'REAL_SAMPLE_COUNT': self._real_env_sample_count,
                                               'CYBER_SAMPLE_COUNT': self._cyber_env_sample_count,
-                                              'ENV': env_status})
+                                              'ENV': env_status,
+                                              'Q_TABLE': self.model.return_q_table()})
             self.log_print_count += 1
         # TODO HOW TO ELEGANT CHANGE THIS
         if self.model and hasattr(self.model, 'print_log_queue') and callable(self.model.print_log_queue):

@@ -110,7 +110,7 @@ class Basic(object):
 
 class Logger(object):
     def __init__(self, prefix=None, log=LOG):
-        self._log_dir = log + '/' + prefix + '/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_PRED_REWARD_INTEL_v2'
+        self._log_dir = log + '/' + prefix + '/' + time.strftime("%Y-%m-%d_%H-%M-%S") + '_case2'
         self._config_file_log_dir = None
         self._loss_file_log_dir = None
         self._model_file_log_dir = None
@@ -204,7 +204,7 @@ class GamePlayer(object):
             for j in range(self.config.config_dict['STEP']):
                 print("\nEPOCH %d, STEP %d" % (i, j))
                 trainer_data = self.agent.sample(env=self.env,
-                                                 sample_count=20,
+                                                 sample_count=50,
                                                  store_flag=True,
                                                  agent_print_log_flag=True)
                 self.agent.train()

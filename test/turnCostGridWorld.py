@@ -31,3 +31,4 @@ def create_case_2_game():
 if __name__ == '__main__':
     player = create_case_2_game()
     player.play()
+    player.print_log_to_file()

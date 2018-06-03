@@ -65,3 +65,6 @@ class TabularQLearningModel(Model):
                                 reward=reward,
                                 done=done,
                                 new_state=next_state)
+
+    def return_q_table(self):
+        return self.q_table.tolist()

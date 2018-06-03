@@ -1,11 +1,11 @@
 {
   "TARGET": [
     3,
-    0
+    3
   ],
   "START": [
     0,
-    3
+    0
   ],
   "MAX_STEP": 40,
   "INIT_DIRECTION": "N",
@@ -13,5 +13,6 @@
   "N": 4,
   "M": 4,
   "HIT_BOUND_COST": 20,
-  "TURN_LEFT_COST": 20
+  "TURN_LEFT_COST": 20,
+  "REACH_TARGET_REWARD": 100
 }

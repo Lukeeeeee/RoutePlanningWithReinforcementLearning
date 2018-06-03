@@ -262,11 +262,12 @@ class Plotter(object):
                     sum_re += re
                     sum_count += 1
                 else:
+                    print(index)
                     merged_reward_list.append(sum_re / sum_count)
                     merged_index_list.append(pre_index)
                     pre_index = index
-                    sum_re = 0.0
-                    sum_count = 0
+                    sum_re = re
+                    sum_count = 1
             baseline_assemble_reward_list.append(merged_reward_list)
         baseline_assemble_reward_list = np.mean(np.array(baseline_assemble_reward_list), axis=0)
         baseline_assemble_reward_list_std = np.std(np.array(baseline_assemble_reward_list), axis=0)
@@ -318,15 +319,16 @@ class Plotter(object):
                 assemble_flag=assemble_flag)
             a = Plotter(log_path='')
             a.plot_fig(fig_num=4, col_id=i, x=baseline_index, y=baseline_reward_list,
-                       title='',
-                       x_lable='Number of real data samples used', y_label='Reward', label=name_list[i],
+                       title=title,
+                       x_lable='Number of data samples used', y_label='Reward', label=name_list[i],
                        marker=Plotter.markers[i])
-            plt.fill_between(x=baseline_index,
-                             y1=baseline_reward_list - baseline_std,
-                             y2=baseline_reward_list + baseline_std,
-                             alpha=0.3,
-                             facecolor=a.color_list[i],
-                             linewidth=0)
+            # plt.fill_between(x=baseline_index,
+            #                  y1=baseline_reward_list - baseline_std,
+            #                  y2=baseline_reward_list + baseline_std,
+            #                  alpha=0.3,
+            #                  facecolor=a.color_list[i],
+            #                  linewidth=0)
+        plt.savefig(path_list[i][0] + '/case1.pdf')
         plt.show()
 
     @staticmethod
@@ -413,7 +415,7 @@ class Plotter(object):
     def _plot(self, x, y):
         pass
 
-    def plot_fig(self, fig_num, col_id, x, y, title, x_lable, y_label, label=' ', marker='*'):
+    def plot_fig(self, fig_num, col_id, x, y, title, x_lable, y_label, label=' ', marker='*', label_list=None):
         from pylab import rcParams
         rcParams['figure.figsize'] = 4, 3
         sns.set_style("darkgrid")
@@ -425,7 +427,9 @@ class Plotter(object):
         plt.tight_layout()
 
         marker_every = max(int(len(x) / 10), 1)
+        # marker_every = 1
         if len(np.array(y).shape) > 1:
+
             new_shape = np.array(y).shape
 
             res = np.reshape(np.reshape(np.array([y]), newshape=[-1]), newshape=[new_shape[1], new_shape[0]],
@@ -433,9 +437,13 @@ class Plotter(object):
             res = list(res)
             for i in range(len(res)):
                 res_i = res[i]
+                if label_list:
+                    label_i = label_list[i]
+                else:
+                    label_i = label + '_' + str(i)
                 plt.subplot(len(res), 1, i + 1)
                 plt.title(title + '_' + str(i))
-                plt.plot(x, res_i, self.color_list[col_id], label=label + '_' + str(i), marker=marker,
+                plt.plot(x, res_i, self.color_list[col_id], label=label_i, marker=marker,
                          markevery=marker_every, markersize=6, linewidth=1)
                 # sns.lmplot(x, res_i, self.color_list[col_id], label=label + '_' + str(i), marker=marker, markevery=marker_every, markersize=24)
                 col_id += 1

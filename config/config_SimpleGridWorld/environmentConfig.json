@@ -1,10 +1,10 @@
 {
   "TARGET": [
-    0,
+    3,
     3
   ],
   "START": [
-    3,
+    0,
     0
   ],
   "MAX_STEP": 40,
@@ -12,5 +12,6 @@
   "NORMAL_MOVING_COST": 1,
   "N": 4,
   "M": 4,
-  "HIT_BOUND_COST": 10
+  "HIT_BOUND_COST": 10,
+  "REACH_TARGET_REWARD": 100
 }

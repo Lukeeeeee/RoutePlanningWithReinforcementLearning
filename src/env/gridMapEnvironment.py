@@ -79,7 +79,9 @@ class GridMapEnvironment(BasicEnv):
         self.state['T'] = 0
         self.state['X'] = self.config.config_dict['START'][0]
         self.state['Y'] = self.config.config_dict['START'][1]
-        self.state['DIRECTION'] = self.config.config_dict['INIT_DIRECTION']
+        dir = np.random.randint(0, 4)
+        self.action_dict = ['S', 'N', 'W', 'E']
+        self.state['DIRECTION'] = self.action_dict[dir]
         self.reset_flag = False
         return self.get_state(env=self)
 
